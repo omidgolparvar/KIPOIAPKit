@@ -78,6 +78,10 @@ public class KipoIAP: NSObject {
 		return true
 	}
 	
+	@objc
+	public static func ConvertErrorToString(_ error: KipoError) -> String {
+		return error.description
+	}
 	
 	private static func GetInvoiceNumber() -> Int {
 		let userDefaults = UserDefaults.standard
