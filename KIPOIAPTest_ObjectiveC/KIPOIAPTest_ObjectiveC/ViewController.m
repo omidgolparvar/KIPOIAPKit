@@ -25,9 +25,22 @@
 
 - (IBAction)actionTest:(UIButton *)sender {
 	NSLog(@"Starting Test...");
-	
+	[KipoIAP SetupWithDelegate: self];
+	[KipoIAP PayWithAmount:10000];
 }
 
+
+- (void)kipoCannotPerformWithError:(enum KipoError)error {
+	NSLog(@"%@", [KipoIAP ConvertErrorToString:error]);
+}
+
+- (void)kipoPaymentWithErrorMessage:(NSString * _Nonnull)errorMessage {
+	NSLog(@"%@", errorMessage);
+}
+
+- (void)kipoPaymentWithPaymentToken:(NSString * _Nonnull)token {
+	
+}
 
 @end
 
